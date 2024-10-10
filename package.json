@@ -7,7 +7,7 @@
     "start": "node build/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts --debug --clear",
     "test": "jest",
-    "build": "npx tsc"
+    "build": "pnpm install && npx tsc"
   },
   "keywords": [],
   "author": "",
