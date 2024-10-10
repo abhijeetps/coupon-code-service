@@ -2,10 +2,12 @@
   "name": "coupon-code-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/app.js",
   "scripts": {
+    "start": "node build/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts --debug --clear",
-    "test": "jest"
+    "test": "jest",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",

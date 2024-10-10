@@ -9,8 +9,14 @@ This project implements a Coupon Code service with repeat count functionality to
 3. Set up Redis:
    - Install Redis on your local machine or use a cloud-hosted solution
    - Set the `REDIS_URL` environment variable if not using the default localhost:6379
+
+### For Development
 4. Run the server: `pnpm dev`
 5. Run tests: `pnpm test`
+
+### For Production
+4. Build the project: `pnpm build`
+5. Run the server: `pnpm start`
 
 ## API Endpoints
 
@@ -29,7 +35,6 @@ POST /api/coupons/create
 #### Example
 
 ```
-# Create a coupon
 curl -X POST http://localhost:5000/api/coupons/create \
   -H "Content-Type: application/json" \
   -d '{"code": "DIWALI2024", "description": "Diwali Sale 2024", "discountPercentage": 20, "expirationDate": "2024-08-31T23:59:59.999Z"}'
@@ -53,7 +58,6 @@ POST /api/coupons/add-repeat-counts
 #### Example
 
 ```
-# Add repeat counts
 curl -X POST http://localhost:5000/api/coupons/add-repeat-counts \
   -H "Content-Type: application/json" \
   -d '{"code": "DIWALI2024", "repeatCounts": [{"type": "GLOBAL_TOTAL", "limit": 10000, "current": 0}, {"type": "USER_TOTAL", "limit": 3, "current": 0}, {"type": "USER_DAILY", "limit": 3, "current": 0}, {"type": "USER_WEEKLY", "limit": 3, "current": 0}]}'
@@ -72,7 +76,6 @@ POST /api/coupons/verify
 #### Example
 
 ```
-# Verify the coupon
 curl -X POST http://localhost:5000/api/coupons/verify \
   -H "Content-Type: application/json" \
   -d '{"code": "DIWALI2024", "userId": "user123"}'
@@ -91,7 +94,6 @@ POST /api/coupons/apply
 #### Example
 
 ```
-# Apply the coupon
 curl -X POST http://localhost:5000/api/coupons/apply \
   -H "Content-Type: application/json" \
   -d '{"code": "DIWALI2024", "userId": "user123"}'
